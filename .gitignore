@@ -13,3 +13,4 @@ eval/output/2d_3d_vlm/
 eval/Evaluation/datasets/excluding_source.py
 eval/Evaluation/datasets/if_eval_data.jsonl
 eval/Evaluation/datasets-internal/
+sync_clinfusion_public_github.sh
