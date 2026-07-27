@@ -1,0 +1,14 @@
+transformers==4.57.0
+vllm==0.11.0
+ray[default]==2.54.1
+grpcio>=1.78.0
+protobuf>=5.0,<7
+nibabel
+backoff
+scipy
+open_clip_torch
+matplotlib
+deepspeed
+accelerate
+monai
+flash_attn-2.8.3+cu128torch2.8-cp311-cp311-linux_x86_64.whl

@@ -1,0 +1,45 @@
+# --- Path Configuration ---
+path_config:
+  # Path to the python executable in the conda/virtual environment.
+  python_executable: "/mnt/eff_nas/zhiwei/conda_envs/medrl_qwen3/bin/python"
+
+  # --- EVALUATION-WORKFLOW PATHS ---
+  # Input data for an evaluation task (e.g., general_eval_data.jsonl).
+  eval_data_path: "eval/Evaluation/datasets/if_eval_data_no_staging.jsonl" # "Evaluation/datasets/if_eval_data.jsonl"
+  # The final aggregated output file for the evaluation run.
+  evaluator_path: "eval/Evaluation/evaluators/evaluator_if.py" 
+  aggregator_path: "eval/Evaluation/aggregators/aggregator_if.py"
+
+  eval_output_path: "eval/output/2d_3d_vlm/clinfusion-8b/mm-language"
+  # eval_output_path: "eval/output/2d_3d_vlm/clinfusion-32b/mm-language"
+
+
+# --- Cluster & Worker Configuration ---
+cluster_config:
+  total_gpus: 8
+  gpus_per_worker: 1
+
+
+# --- Custom Model ---
+model_config:
+  model_type: "custom"
+
+  ### Final 8B
+  model_path: "cache/models/ClinFusion-8B"
+  ### Fianl 32B
+  # model_path: "cache/models/ClinFusion-32B"
+
+  model_definition_path: "custom_model/medevalkit_adapter_qwen3_vl.py"
+
+generation_config:
+  batch_size: 2
+  max_new_tokens: 4096
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
+
+evaluator_config:
+  model_path: "gpt-41-0414-global"
+  base_url: "https://idealab.alibaba-inc.com/api/openai/v1"
+  use_regex_fallback: True # 如果rule-based evaluator无法评估，则使用regex_fallback, 注意，正则表达可能会有错判
+  use_llm_fallback: False  # 如果rule-based evaluator无法评估，则使用llm评价，注意，数据量大的时候很慢且消耗量大。当regex_fallback和llm_fallback都是True，以llm_fallback为准。

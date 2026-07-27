@@ -1,0 +1,47 @@
+# --- Path Configuration ---
+# All paths should be absolute or relative to where you run the launch script.
+path_config:
+  # Path to the python executable in the conda/virtual environment that has vllm installed.
+  python_executable: "/mnt/eff_nas/zhiwei/conda_envs/medrl/bin/python"
+  # Input data file in .jsonl format.
+  input_data_path: ""
+  # The final aggregated output file.
+  final_output_path: ""
+
+# --- Cluster & Worker Configuration ---
+cluster_config:
+  # Total number of GPUs available for inference across all nodes.
+  total_gpus: 1
+  # Number of GPUs to allocate to each inference worker. For most models, this is 1.
+  # For very large models, you might use tensor parallelism (e.g., 2, 4, 8).
+  gpus_per_worker: 1
+
+# --- Model Configuration ---
+model_config:
+  # 1. Set the model_type to 'custom' to use your new CustomWrapper
+  model_type: "custom"
+  # 2. This is the path to the fine-tuned model checkpoint
+  model_path: ""
+  # 3. Add the path to the Python file containing your adapter class, it will load the MedEvalKitAdapter defined in this file
+  model_definition_path: ""
+
+  # # === EXAMPLE 2: Using an API model ===
+  # model_type: "api"
+  # # For API models, this is repurposed as the model name.
+  # model_path: "gpt-41-nano-0414-global"
+  # # All other API settings are now at the top level of model_config.
+  # base_url: "https://idealab.alibaba-inc.com/api/openai/v1"
+  # max_retries: 10
+
+# --- Generation Configuration ---
+generation_config:
+  # Number of prompts to process in a single batch on each worker.
+  batch_size: 8
+  # Maximum number of new tokens to generate for each response.
+  max_new_tokens: 256
+  # Sampling temperature. Set to 0.0 for deterministic output.
+  temperature: 0.0
+  # Nucleus sampling top_p. Set to 1.0 to disable.
+  top_p: 1.0
+  # Random seed for reproducibility.
+  seed: 42

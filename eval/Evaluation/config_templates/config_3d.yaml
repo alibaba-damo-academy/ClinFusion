@@ -1,0 +1,51 @@
+# --- Path Configuration ---
+path_config:
+  # Path to the python executable in the conda/virtual environment.
+  python_executable: "/mnt/eff_nas/zhiwei/conda_envs/medrl_qwen3/bin/python"
+  
+  # --- EVALUATION-WORKFLOW PATHS ---
+  # Input data for an evaluation task (e.g., general_eval_data.jsonl).
+  eval_data_path: "/mnt/eff_nas/tangzhiwei.tzw/MedEvalKit-V3/Evaluation/datasets/3d_eval_data_lite.jsonl" # 3d_eval_data是完整的数据约50k条，3d_eval_data_lite是5k条子集，用于快速验证。
+  # The final aggregated output file for the evaluation run.
+  eval_output_path: "output/3d_eval_all_test_0"
+  evaluator_path: "Evaluation/evaluators/evaluator_3d.py" 
+  aggregator_path: "Evaluation/aggregators/aggregator.py"
+
+# filter_config:
+#   eval_method: "mcq"
+
+# --- Cluster & Worker Configuration ---
+cluster_config:
+  total_gpus: 8
+  gpus_per_worker: 1
+
+# --- Model-Under-Test Configuration ---
+model_config:
+  model_type: "qwenvl"
+  model_path: "/mnt/eff_nas/tangzhiwei.tzw/Qwen3-VL-8B-Instruct" 
+  distributed_executor_backend: "mp"
+  max_model_len: 32000
+  gpu_memory_utilization: 0.95
+  max_image_num: 0
+  max_image_size: 256
+
+# # === EXAMPLE 2: Using an API model ===
+#   model_type: "api"
+#   # For API models, this is repurposed as the model name.
+#   model_path: "gpt-41-nano-0414-global"
+#   # All other API settings are now at the top level of model_config.
+#   base_url: "https://idealab.alibaba-inc.com/api/openai/v1"
+#   max_retries: 10
+
+generation_config:
+  batch_size: 8
+  max_new_tokens: 8192
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
+
+evaluator_config:
+  model_path: "gpt-41-0414-global"
+  base_url: "https://idealab.alibaba-inc.com/api/openai/v1"
+  use_regex_fallback: True # 如果rule-based evaluator无法评估，则使用regex_fallback, 注意，正则表达可能会有错判
+  use_llm_fallback: False   # 如果rule-based evaluator无法评估，则使用llm评价，注意，数据量大的时候很慢且消耗量大。当regex_fallback和llm_fallback都是True，以llm_fallback为准。

@@ -1,0 +1,54 @@
+# --- Path Configuration ---
+# All paths should be absolute or relative to where you run the launch script.
+path_config:
+  # Path to the python executable in the conda/virtual environment that has vllm installed.
+  python_executable: "/mnt/eff_nas/zhiwei/conda_envs/medrl_qwen3/bin/python"
+  # Input data file in .jsonl format.
+  input_data_path: "/mnt/eff_nas/tangzhiwei.tzw/MedEvalKit-V3/tagging/prompts_for_tagging.jsonl"
+  # The final aggregated output file.
+  final_output_path: "/mnt/eff_nas/tangzhiwei.tzw/MedEvalKit-V3/output/generaleval_tagging_raw.jsonl"
+
+# --- Cluster & Worker Configuration ---
+cluster_config:
+  # Total number of GPUs available for inference across all nodes.
+  total_gpus: 8
+  # Number of GPUs to allocate to each inference worker. For most models, this is 1.
+  # For very large models, you might use tensor parallelism (e.g., 2, 4, 8).
+  gpus_per_worker: 1
+
+# --- Model Configuration ---
+model_config:
+  # The type of model wrapper to use. Must match a key in get_wrapper.py.
+  # For now, we only have 'qwenvl'. Support: Qwen2_5_VLForConditionalGeneration, Qwen3VLMoeForConditionalGeneration, Qwen3VLForConditionalGeneration,
+  model_type: "qwenvl" # "qwenvl" or "api"
+  # Absolute path to the model checkpoint directory.
+  model_path: "/mnt/eff_nas/tangzhiwei.tzw/Qwen3-VL-32B-Instruct" # IGNORED if model_type is 'api'
+  # The vLLM distributed backend. 'mp' (multiprocessing) is a robust choice.
+  distributed_executor_backend: "mp"
+  # Maximum sequence length the model can handle.
+  max_model_len: 8192
+  # vLLM GPU memory utilization. 0.95 is a good starting point.
+  gpu_memory_utilization: 0.95
+  # The maximum number of images a single prompt can contain.
+  max_image_num: 10
+
+  # # === EXAMPLE 2: Using an API model ===
+  # model_type: "api"
+  # # For API models, this is repurposed as the model name.
+  # model_path: "gpt-41-nano-0414-global"
+  # # All other API settings are now at the top level of model_config.
+  # base_url: "https://idealab.alibaba-inc.com/api/openai/v1"
+  # max_retries: 10
+
+# --- Generation Configuration ---
+generation_config:
+  # Number of prompts to process in a single batch on each worker.
+  batch_size: 8
+  # Maximum number of new tokens to generate for each response.
+  max_new_tokens: 4096
+  # Sampling temperature. Set to 0.0 for deterministic output.
+  temperature: 0.0
+  # Nucleus sampling top_p. Set to 1.0 to disable.
+  top_p: 1.0
+  # Random seed for reproducibility.
+  seed: 42

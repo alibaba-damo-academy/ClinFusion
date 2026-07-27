@@ -1,0 +1,1 @@
+{"messages": {"prompt": "What can be inferred about the left iliac artery from the CT image?\nA. There is a significant dilation\nB. It is obscured by nearby structures\nC. It extends into an intramural hematoma\nD. There is a discontinuity in the vessel wall", "nifti": ["assets/example_data/amos_0326.nii.gz"]}}

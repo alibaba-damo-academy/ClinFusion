@@ -1,0 +1,61 @@
+# --- Path Configuration ---
+path_config:
+  # Path to the python executable in the conda/virtual environment.
+  python_executable: "/mnt/eff_nas/zhiwei/conda_envs/medrl_qwen3/bin/python"
+  
+  # --- EVALUATION-WORKFLOW PATHS ---
+  # Input data for an evaluation task (e.g., general_eval_data.jsonl).
+  eval_data_path: "Evaluation/datasets/general_eval_data_with_tags_v1.jsonl"
+  # The final aggregated output file for the evaluation run.
+  eval_output_path: "output/general_eval_output"
+  evaluator_path: "Evaluation/evaluators/evaluator_general.py" 
+  aggregator_path: "Evaluation/aggregators/aggregator.py"
+
+filter_config:
+  source: "chexpert_plus,gmaimmbench,iuxray,medbullets_op4,medbullets_op5,medframeqa,medmcqa,medqa_mcmle,medqa_usmle,medxpertqa_mm,medxpertqa_text,mmlu_med,omnimedvqa,path_vqa,pmcvqa,pubmedqa,slake,supergpqa_med,vqa_rad"
+  organs_involved: "liver"
+  sample_quality: "good"
+  hardness: "hard,mild"
+  #language: "english"
+  # You can add any other key from your data.jsonl file here.
+  # For example, to filter by source:
+  # source: "medxpertqa_mm"
+  ### Unique values for common keys:
+  ### source: "chexpert_plus,gmaimmbench,iuxray,medbullets_op4,medbullets_op5,medframeqa,medmcqa,medqa_mcmle,medqa_usmle,medxpertqa_mm,medxpertqa_text,mmlu_med,omnimedvqa,path_vqa,pmcvqa,pubmedqa,slake,supergpqa_med,vqa_rad"
+  ### eval_method: "mcq,mcq_context,open,report_generation"
+  ### language: "english,chinese"
+
+# --- Cluster & Worker Configuration ---
+cluster_config:
+  total_gpus: 8
+  gpus_per_worker: 1
+
+# --- Model-Under-Test Configuration ---
+model_config:
+  model_type: "hulumed"
+  model_path: "/mnt/eff_nas/tangzhiwei.tzw/hulu_med_series/Hulu-Med-7B" 
+  distributed_executor_backend: "mp"
+  max_model_len: 8192
+  gpu_memory_utilization: 0.95
+  max_image_num: 10
+
+# # === EXAMPLE 2: Using an API model ===
+#   model_type: "api"
+#   # For API models, this is repurposed as the model name.
+#   model_path: "gpt-41-nano-0414-global"
+#   # All other API settings are now at the top level of model_config.
+#   base_url: "https://idealab.alibaba-inc.com/api/openai/v1"
+#   max_retries: 10
+
+generation_config:
+  batch_size: 8
+  max_new_tokens: 4096
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
+
+evaluator_config:
+  model_path: "gpt-41-0414-global"
+  base_url: "https://idealab.alibaba-inc.com/api/openai/v1"
+  use_regex_fallback: True # 如果rule-based evaluator无法评估，则使用regex_fallback, 注意，正则表达可能会有错判
+  use_llm_fallback: False   # 如果rule-based evaluator无法评估，则使用llm评价，注意，数据量大的时候很慢且消耗量大。当regex_fallback和llm_fallback都是True，以llm_fallback为准。

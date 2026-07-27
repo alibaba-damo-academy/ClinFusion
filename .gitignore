@@ -1,0 +1,15 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+opensource_operations.py
+README_draft.md
+TODO.txt
+requirements_new.txt
+install_env.sh
+cache/data/
+cache/models/
+eval/output/2d_3d_vlm/
+eval/Evaluation/datasets/excluding_source.py
+eval/Evaluation/datasets/if_eval_data.jsonl
+eval/Evaluation/datasets-internal/

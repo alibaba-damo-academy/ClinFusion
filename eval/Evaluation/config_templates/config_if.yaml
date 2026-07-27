@@ -1,0 +1,35 @@
+# --- Path Configuration ---
+path_config:
+  # Path to the python executable in the conda/virtual environment.
+  python_executable: "/mnt/eff_nas/zhiwei/conda_envs/medrl_qwen3/bin/python"
+  
+  # --- EVALUATION-WORKFLOW PATHS ---
+  # Input data for an evaluation task (e.g., general_eval_data.jsonl).
+  eval_data_path: "Evaluation/datasets/if_eval_data_no_staging.jsonl"
+  # The final aggregated output file for the evaluation run.
+  eval_output_path: "output/if_eval_output_ls"
+  evaluator_path: "Evaluation/evaluators/evaluator_if.py" 
+  aggregator_path: "Evaluation/aggregators/aggregator_if.py"
+
+# --- Cluster & Worker Configuration ---
+cluster_config:
+  total_gpus: 8
+  gpus_per_worker: 1
+
+# --- Model-Under-Test Configuration ---
+model_config:
+  model_type: "qwenvl"
+  model_path: "/mnt/eff_nas/tangzhiwei.tzw/Lingshu-7B" 
+  distributed_executor_backend: "mp"
+  max_model_len: 8192
+  gpu_memory_utilization: 0.95
+  max_image_num: 10
+
+
+generation_config:
+  batch_size: 8
+  max_new_tokens: 4096
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
+

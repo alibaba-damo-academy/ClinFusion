@@ -1,0 +1,46 @@
+# --- Path Configuration ---
+path_config:
+  # Path to the python executable in the conda/virtual environment.
+  python_executable: "/mnt/eff_nas/zhiwei/conda_envs/medrl_qwen3/bin/python"
+  
+  # --- EVALUATION-WORKFLOW PATHS ---
+  # Input data for an evaluation task (e.g., general_eval_data.jsonl).
+  # Full version
+  input_data_path: "eval/test/example_data_3d.jsonl"
+  # Lite version
+  # input_data_path: "eval/Evaluation/datasets/3d_eval_data_ct-rate_amos_3d-rad_lite.jsonl"
+
+  # The final aggregated output file for the evaluation run.
+  evaluator_path: "eval/Evaluation/evaluators/evaluator_3d.py" 
+  aggregator_path: "eval/Evaluation/aggregators/aggregator.py"
+
+  final_output_path: "eval/output/2d_3d_vlm/clinfusion-8b/test-3d-full"
+  # final_output_path: "eval/output/2d_3d_vlm/clinfusion-32b/test-3d-full"
+
+
+# filter_config:
+#   source: "ct_rate_vqa,amos-mm,3d_rad"
+
+# --- Cluster & Worker Configuration ---
+cluster_config:
+  total_gpus: 1
+  gpus_per_worker: 1
+
+
+# --- Custom Model ---
+model_config:
+  model_type: "custom"
+
+  ### Final 8B
+  model_path: "cache/models/ClinFusion-8B"
+  ### Fianl 32B
+  # model_path: "cache/models/ClinFusion-32B"
+
+  model_definition_path: "custom_model/medevalkit_adapter_qwen3_vl.py"
+
+generation_config:
+  batch_size: 2
+  max_new_tokens: 4096
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
