@@ -4,7 +4,7 @@
 
 **A Vision-Centric Multimodal LLM System for Holistic Medical Understanding**
 
-[![arXiv](https://img.shields.io/badge/📄_Paper-ClinFusion-FC6C85.svg?logo=arXiv)](http://arxiv.org/abs/xxxxx)
+[![arXiv](https://img.shields.io/badge/📄_Paper-ClinFusion-FC6C85.svg?logo=arXiv)](https://arxiv.org/abs/2607.24743)
 [![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Models-FC6C85.svg)](https://huggingface.co/collections/Alibaba-DAMO-Academy/clinfusion)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
