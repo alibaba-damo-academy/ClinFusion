@@ -407,7 +407,12 @@ Workers are dynamically allocated for optimal GPU utilization:
 If you find ClinFusion useful in your research, please consider citing:
 
 ```bibtex
-TO Be Added.
+@article{yuan2026ClinFusion,
+  title={ClinFusion: A Vision-Centric Multimodal LLM System for Holistic Medical Understanding},
+  author={Yuan, Hangjie and Qian, Yichen and Tang, Zhiwei and Xu, Xianzhe and Wu, Lirong and Yang, Sicheng and Wang, Jinwang and Wang, Pengju and Zeng, Zhitao and Han, Yizeng and Xing, Yan and Luo, Shengxuan and Feng, Tao and Xie, Qing and Yao, Weigen and Yang, Yi and Liu, Zuozhu and Tang, Jiasheng and Wang, Shaocheng and Wang, Jitao and Dong, Jiahong and Chen, Weihua and Xu, Feng and Wang, Fan},
+  journal={arXiv preprint arXiv:2607.24743},
+  year={2026}
+}
 ```
 
 ---
