@@ -41,7 +41,7 @@
 ## 🔥 News
 
 
-- **[2026-07]** 🔥 Try ClinFusion-8B in your browser! [![Online Demo](https://img.shields.io/badge/🤗%20Online%20Demo-ClinFusion--8B-red?style=for-the-badge)](https://huggingface.co/spaces/hugging-apps/clinfusion-medical-vlm) — no installation required. 🕹️ （Both English and Chinese are supported but English might be better.）
+- **[2026-07-29]** 🔥 Try ClinFusion-8B in your browser! [![Online Demo](https://img.shields.io/badge/🤗%20Online%20Demo-ClinFusion--8B-red?style=for-the-badge)](https://huggingface.co/spaces/hugging-apps/clinfusion-medical-vlm) — no installation required. 🕹️ （Both English and Chinese are supported but English might be better.）
 
 - **[2026-07-28]** 🎉 Our paper **ClinFusion: A Vision-Centric Multimodal LLM System for Holistic Medical Understanding** is now on [arXiv](https://arxiv.org/abs/2607.24743)! We have open-sourced the code and released the model weights (ClinFusion-8B / ClinFusion-32B) on [Hugging Face](https://huggingface.co/collections/Alibaba-DAMO-Academy/clinfusion). 🚀
 
