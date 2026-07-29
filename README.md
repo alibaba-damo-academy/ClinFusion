@@ -6,7 +6,8 @@
 
 [![arXiv](https://img.shields.io/badge/📄_Paper-ClinFusion-FC6C85.svg?logo=arXiv)](https://arxiv.org/abs/2607.24743)
 [![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Models-FC6C85.svg)](https://huggingface.co/collections/Alibaba-DAMO-Academy/clinfusion)
-[![Online Demo](https://img.shields.io/badge/🤗_Online_Demo-ClinFusion--8B-red)](https://huggingface.co/spaces/hugging-apps/clinfusion-medical-vlm)
+[![Online Demo](https://img.shields.io/badge/🤗_Online_Demo-ClinFusion--8B-red)](https://huggingface.co/spaces/Alibaba-DAMO-Academy/clinfusion-medical-vlm)
+
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
@@ -41,7 +42,7 @@
 ## 🔥 News
 
 
-- **[2026-07-29]** 🔥 Try ClinFusion-8B in your browser! [![Online Demo](https://img.shields.io/badge/🤗%20Online%20Demo-ClinFusion--8B-red?style=for-the-badge)](https://huggingface.co/spaces/hugging-apps/clinfusion-medical-vlm) — no installation required. 🕹️ （Both English and Chinese are supported but English might be better.）
+- **[2026-07-29]** 🔥 Try ClinFusion-8B in your browser! [![Online Demo](https://img.shields.io/badge/🤗%20Online%20Demo-ClinFusion--8B-red?style=for-the-badge)](https://huggingface.co/spaces/Alibaba-DAMO-Academy/clinfusion-medical-vlm) — no installation required. 🕹️ （Both English and Chinese are supported but English might be better.）
 
 - **[2026-07-28]** 🎉 Our paper **ClinFusion: A Vision-Centric Multimodal LLM System for Holistic Medical Understanding** is now on [arXiv](https://arxiv.org/abs/2607.24743)! We have open-sourced the code and released the model weights (ClinFusion-8B / ClinFusion-32B) on [Hugging Face](https://huggingface.co/collections/Alibaba-DAMO-Academy/clinfusion). 🚀
 
