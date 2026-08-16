@@ -55,7 +55,7 @@
 
 - [🔧 Installation](#-installation)
 - [📥 Model Download](#-model-download)
-- [📊 Dataset Download](#-dataset-download)
+- [📊 ClinFusion-Eval-Data Download](#-clinfusion-eval-data-download)
 - [📈 Running ClinFusion-Eval](#-running-clinfusion-eval)
 - [🚀 Model Inference with Your Own Data](#-model-inference-with-your-own-data)
 - [🛠️ More Customized Usage](#️-more-customized-usage)
@@ -145,7 +145,7 @@ huggingface-cli download --resume-download Alibaba-DAMO-Academy/ClinFusion-32B \
 
 ---
 
-## 📊 Evaluation Dataset Download
+## 📊 ClinFusion-Eval-Data Download
 
 The evaluation annotations (the four `*.jsonl` files) already ship with this repository under `eval/Evaluation/datasets/`. The media they reference — 2D images and native 3D CT volumes — are released separately on the Hub as [ClinFusion-Eval-Data](https://huggingface.co/datasets/Alibaba-DAMO-Academy/ClinFusion-Eval-Data), split into 102 shards of `mm_data.tar` (509.25 GiB in total, since the Hub caps single files at 50 GB).
 
