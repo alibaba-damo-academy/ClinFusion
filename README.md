@@ -6,6 +6,7 @@
 
 [![arXiv](https://img.shields.io/badge/📄_Paper-ClinFusion-FC6C85.svg?logo=arXiv)](https://arxiv.org/abs/2607.24743)
 [![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Models-FC6C85.svg)](https://huggingface.co/collections/Alibaba-DAMO-Academy/clinfusion)
+[![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Eval_Data-FC6C85.svg)](https://huggingface.co/datasets/Alibaba-DAMO-Academy/ClinFusion-Eval-Data)
 [![Online Demo](https://img.shields.io/badge/🤗_Online_Demo-ClinFusion--8B-red)](https://huggingface.co/spaces/Alibaba-DAMO-Academy/clinfusion-medical-vlm)
 
 
@@ -32,7 +33,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/all-contributions.png" width="100%">
+  <img src="assets/all-contributions.png" width="78%">
 </p>
 <p align="center">
   <sub><b>(a)</b> Data curation, compositional vision encoder, and training recipe. &nbsp; <b>(b)</b> Vision-grounded evaluation framework (MedIF-Bench and RoI-grounded report evaluation). &nbsp; <b>(c)</b> Agentic tool use for retrieval-augmented clinical workflows.</sub>
@@ -41,6 +42,7 @@
 ---
 ## 🔥 News
 
+- **[2026-08-16]** 📦 The full evaluation suite is out! We have released **ClinFusion-Eval-Data** on [![Dataset](https://img.shields.io/badge/🤗%20Dataseht-ClinFusion--Eval--Data-blue?style=for-the-badge)](https://huggingface.co/datasets/Alibaba-DAMO-Academy/ClinFusion-Eval-Data) — 211K evaluation records over 22 medical benchmarks, plus the 509 GiB media archive of 2D images and native 3D CT volumes for one-command reproduction. 🔬
 
 - **[2026-07-29]** 🔥 Try ClinFusion-8B in your browser! [![Online Demo](https://img.shields.io/badge/🤗%20Online%20Demo-ClinFusion--8B-red?style=for-the-badge)](https://huggingface.co/spaces/Alibaba-DAMO-Academy/clinfusion-medical-vlm) — no installation required. 🕹️ （Both English and Chinese are supported but English might be better.）
 
@@ -145,7 +147,37 @@ huggingface-cli download --resume-download Alibaba-DAMO-Academy/ClinFusion-32B \
 
 ## 📊 Evaluation Dataset Download
 
-> 🚧 *Coming soon...*
+The evaluation annotations (the four `*.jsonl` files) already ship with this repository under `eval/Evaluation/datasets/`. The media they reference — 2D images and native 3D CT volumes — are released separately on the Hub as [ClinFusion-Eval-Data](https://huggingface.co/datasets/Alibaba-DAMO-Academy/ClinFusion-Eval-Data), split into 102 shards of `mm_data.tar` (509.25 GiB in total, since the Hub caps single files at 50 GB).
+
+### Step 1: Download the media shards
+
+```bash
+export HF_ENDPOINT=https://hf-mirror.com
+huggingface-cli download --resume-download Alibaba-DAMO-Academy/ClinFusion-Eval-Data \
+    --repo-type dataset \
+    --local-dir cache/data
+```
+
+### Step 2: Reassemble and extract
+
+```bash
+cd cache/data
+cat mm_data.tar.part-* | wc -c          # expect 546797690880
+cat mm_data.tar.part-* | tar xf -       # -> cache/data/mm_data/
+```
+
+### Step 3: Point the evaluation at the media
+
+Media paths inside the jsonl files are relative (`mm_data/...`) and are resolved from the repository root, so link the extracted tree there:
+
+```bash
+cd ClinFusion
+ln -s cache/data/mm_data mm_data
+```
+
+> [!TIP]
+> Reassembly needs ~1 TB of free space while the shards and the extracted tree coexist; delete `mm_data.tar.part-*` once extraction succeeds to halve that. Both the download and the extraction can be resumed by re-running the same commands.
+
 
 ---
 
