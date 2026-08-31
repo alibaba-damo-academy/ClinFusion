@@ -59,7 +59,7 @@
 - [📈 Running ClinFusion-Eval](#-running-clinfusion-eval)
 - [🚀 Model Inference with Your Own Data](#-model-inference-with-your-own-data)
 - [🛠️ More Customized Usage](#️-more-customized-usage)
-- [📄 Related Projects](#-related-projects)
+- [📄 Related Projects (Clin Series)](#-related-projects)
 - [📄 Citation](#-citation)
 - [🙏 Acknowledgements](#-acknowledgements)
 ---
