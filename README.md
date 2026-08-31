@@ -59,6 +59,7 @@
 - [📈 Running ClinFusion-Eval](#-running-clinfusion-eval)
 - [🚀 Model Inference with Your Own Data](#-model-inference-with-your-own-data)
 - [🛠️ More Customized Usage](#️-more-customized-usage)
+- [📄 Related Projects](#-related-projects)
 - [📄 Citation](#-citation)
 - [🙏 Acknowledgements](#-acknowledgements)
 ---
@@ -444,6 +445,15 @@ Workers are dynamically allocated for optimal GPU utilization:
 > [!TIP]
 > To force more GPU parallelism on small datasets, **reduce `generation_config.batch_size`** — this increases the effective worker count.
 
+
+---
+
+## 🔗 Related Projects
+
+ClinFusion is part of our ongoing efforts in building reliable and trustworthy medical AI. We encourage you to check out our related works:
+
+- 🩺 **[ClinHallu](https://github.com/alibaba-damo-academy/ClinHallu)**: A comprehensive benchmark and evaluation suite dedicated to analyzing and mitigating clinical hallucinations in Medical LLMs/VLMs.
+
 ---
 
 ## 📄 Citation
@@ -455,6 +465,13 @@ If you find ClinFusion useful in your research, please consider citing:
   title={ClinFusion: A Vision-Centric Multimodal LLM System for Holistic Medical Understanding},
   author={Yuan, Hangjie and Qian, Yichen and Tang, Zhiwei and Xu, Xianzhe and Wu, Lirong and Yang, Sicheng and Wang, Jinwang and Wang, Pengju and Zeng, Zhitao and Han, Yizeng and Xing, Yan and Luo, Shengxuan and Feng, Tao and Xie, Qing and Yao, Weigen and Yang, Yi and Liu, Zuozhu and Tang, Jiasheng and Wang, Shaocheng and Wang, Jitao and Dong, Jiahong and Chen, Weihua and Xu, Feng and Wang, Fan},
   journal={arXiv preprint arXiv:2607.24743},
+  year={2026}
+}
+
+@article{yang2026ClinHallu,
+  title={ClinHallu: A Benchmark for Diagnosing Stage-Wise Hallucinations in Medical MLLM Reasoning},
+  author={Yang, Sicheng and Yuan, Hangjie and Zhang, Wenjun and Wang, Jinwang and Qian, Yichen and Chen, Weihua and Wang, Fan and Zhu, Lei},
+  journal={arXiv preprint arXiv:2606.14697},
   year={2026}
 }
 ```
